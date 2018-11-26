@@ -2645,6 +2645,9 @@ CURLcode Curl_vsetopt(struct Curl_easy *data, CURLoption option,
 #ifndef CURL_DISABLE_HTTP
     data->set.trailer_data = va_arg(param, void *);
 #endif
+  case CURLOPT_H3:
+    arg = va_arg(param, long);
+    data->set.h3opts = arg;
     break;
   default:
     /* unknown tag and its companion, just ignore: */
