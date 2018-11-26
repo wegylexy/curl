@@ -902,6 +902,10 @@ typedef enum {
 #define CURLPROTO_SMBS   (1<<27)
 #define CURLPROTO_ALL    (~0) /* enable everything */
 
+/* bitmask defines for CURLOPT_H3 */
+#define CURLH3_DIRECT (1<<0) /* go QUIC + HTTP/3 directly to the given host +
+                                port */
+
 /* long may be 32 or 64 bits, but we should never depend on anything else
    but 32 */
 #define CURLOPTTYPE_LONG          0
@@ -1890,6 +1894,9 @@ typedef enum {
 
   /* pointer to be passed to HTTP_TRAILER_FUNCTION */
   CINIT(TRAILERDATA, OBJECTPOINT, 284),
+
+  /* Bitmask to control HTTP/3 behavior. See CURLH3_* */
+  CINIT(H3, LONG, 999),
 
   CURLOPT_LASTENTRY /* the last unused */
 } CURLoption;
